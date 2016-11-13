@@ -1,15 +1,14 @@
-var bgURL = "chrome-extension://" + chrome.runtime.id + "/images/make_america_great_again.jpg";
-console.log(bgURL);
-var st = "background-image: url(" + bgURL  + ")";
-document.body.style = st;
-/*var divs = document.getElementsByTagName("div");
-for (i = 0; i < divs.length; ++i)
+// Changing the background
+var backgroundUrl = "chrome-extension://" + chrome.runtime.id + "/images/make_america_great_again.jpg";
+console.log('Background URL: ' + backgroundUrl);
+var backgroundStyle = "background-image: url(" + backgroundUrl  + ")";
+document.body.style = backgroundStyle;
+
+// Changing images
+var images =document.images;
+for (var imageIndex = 0; imageIndex < images.length; ++imageIndex)
 {
-	divs[i].style = st;
-}*/
-var im=document.images;
-for (i = 0; i < im.length; ++i)
-{
-	im[i].src=chrome.extension.getURL('images/trump.jpg');
-	im[i].srcset="";
+    var image = images[imageIndex];
+	image.src = chrome.extension.getURL('images/trump.jpg');
+	image.srcset = "";
 }
